@@ -8,7 +8,7 @@ To run : framework.js
 Database Structure : { Name : (name of Symtom) , Diseases : [(an array of all the diseases corresponding to this symtom)] }
 
 
-URL : /api/findDesease
+URL : /api/findDesease //to find the disease corresponding to the symptom given
 
 How to give input : Input should be given through the body of the request, through a keyword "symtom".
 
