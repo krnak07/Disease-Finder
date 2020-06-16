@@ -61,7 +61,10 @@ module.exports.findDiseases = function (req,res) {
                         for (let j=0;j<sdb.diseases.length;j++){
                             temp[j] = sdb.diseases[j].name;
                         }
-                        dis[k] = temp;
+                        dis[k] = {
+                            symtom : req.body.symtom[i].toUpperCase(),
+                            diseases : temp
+                        };
                         k++;
                         if (i+1 == req.body.symtom.length) {
                             if (dis.length == 1){
@@ -70,13 +73,16 @@ module.exports.findDiseases = function (req,res) {
                                     .json(dis);
                             }
                             else{
-                                let intersection = dis[0].filter(x => dis[1].includes(x));
+                                let intersection = dis[0].diseases.filter(x => dis[1].diseases.includes(x));
                                 for (let i=2;i<dis.length;i++){
-                                    intersection = intersection.filter(x => dis[i].includes(x));
+                                    intersection = intersection.filter(x => dis[i].diseases.includes(x));
                                 }
+                                dis[k] = {
+                                    Common : intersection
+                                };
                                 res
                                     .status(200)
-                                    .json(intersection);
+                                    .json(dis);
                             }
                         }
 

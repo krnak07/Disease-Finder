@@ -28,6 +28,11 @@ module.exports.exltoDB = function (req,res) {
                             if(err){
                                 console.log(err);
                             }
+                            else{
+                                res
+                                    .status(201)
+                                    .json({"msg":"export successful"})
+                            }
                         })
                     }
                 })
