@@ -14,6 +14,8 @@ How to give input : Input should be given through the body of the request, throu
 
 Type of input : a single symtom(a string) or multiple symtom(an array)
 
+Output : [ {symtom : 'symtom name',diseases : [(diseases coresponding to the symtom)] },....{common : [(if any common disease found among the given symtoms)]} ]
+
 
 URL : /api/exportDB
 
